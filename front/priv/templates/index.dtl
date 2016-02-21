@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html>
-  <title>BBL Erlang</title>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>BBL Erlang</title>
+    <script src="/static/jquery.min.js"></script>
+    <script src="/static/log.js"></script>
+  </head>
   <body>
     <h1>Erlang Brown Bag Lunch</h1>
     <p>Hello world!</p>
     <button>Create</button>
+    <hr/>
+    <h3>Those messages are coming from server by web-socket</h3>
+    <div id="messages"></div>
   </body>
 </html>

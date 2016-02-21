@@ -15,6 +15,7 @@
 
 -define(SERVER, ?MODULE).
 
+
 %%====================================================================
 %% API functions
 %%====================================================================
@@ -26,9 +27,13 @@ start_link() ->
 %% Supervisor callbacks
 %%====================================================================
 
+%% Helper macro for declaring children of supervisor
+-define(CHILD(I, Type), {I, {I, start_link, []}, permanent, 5000, Type, [I]}).
+
 %% Child :: {Id,StartFunc,Restart,Shutdown,Type,Modules}
 init([]) ->
-    {ok, { {one_for_all, 0, 1}, []} }.
+    {ok, { {one_for_one, 5, 10},
+           [?CHILD(front_server, worker)]} }.
 
 %%====================================================================
 %% Internal functions

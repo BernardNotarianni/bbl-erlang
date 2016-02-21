@@ -1,7 +1,6 @@
 * BBL Erlang
 
-  Documents et code d'exemples pour animer un
-  [BBL](http://www.brownbaglunch.fr/) Erlang.
+  Documents et code d'exemples pour animer un [[http://www.brownbaglunch.fr/][BBL]] Erlang.
 
 ** Build
 
@@ -12,8 +11,3 @@ $ ./start.sh
 #+END_SRC
 
   puis ouvrir la page http://localhost:8080
-
-* Backlog
-
-
-
