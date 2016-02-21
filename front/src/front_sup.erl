@@ -1,9 +1,9 @@
 %%%-------------------------------------------------------------------
-%% @doc bbl top level supervisor.
+%% @doc front top level supervisor.
 %% @end
 %%%-------------------------------------------------------------------
 
--module(bbl_sup).
+-module(front_sup).
 
 -behaviour(supervisor).
 

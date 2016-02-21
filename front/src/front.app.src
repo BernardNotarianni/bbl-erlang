@@ -1,8 +1,8 @@
-{application, bbl,
- [{description, "An OTP application"},
+{application, front,
+ [{description, "Web front end of BBL system"},
   {vsn, "0.1.0"},
   {registered, []},
-  {mod, { bbl_app, []}},
+  {mod, {front_app, []}},
   {applications,
    [kernel
    ,stdlib
@@ -11,7 +11,8 @@
    ]},
   {env,[]},
   {modules, []},
-  {maintainers, []},
+
+  {contributors, []},
   {licenses, []},
   {links, []}
  ]}.

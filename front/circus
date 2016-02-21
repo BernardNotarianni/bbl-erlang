@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+# -*- shell-script-mode -*-
+
+# --- Functions
+
+function stop_server {
+    echo "Stop server..."
+    _build/default/rel/front/bin/front stop
+}
+
+function ctrl_c {
+    echo "** Trapped CTRL-C"
+    stop_server
+    exit
+}
+
+# ---  Start
+
+trap ctrl_c INT TERM
+
+echo "Continuous assets build"
+echo "<ctrl>-C to quit."
+
+while true; do
+
+    stop_server
+
+    echo ""
+    echo "start build..."
+
+    rebar3 release
+
+    if [ $? == 0 ]
+    then
+        echo "Start server"
+        _build/default/rel/front/bin/front start
+    fi
+
+    echo ""
+    date +"%k:%M:%S - Wait for source modification"
+
+    inotifywait -qr -e modify -e create -e move -e delete src priv/templates --exclude "\.\#.*"
+done

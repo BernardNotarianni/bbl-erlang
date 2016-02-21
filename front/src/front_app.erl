@@ -1,9 +1,9 @@
 %%%-------------------------------------------------------------------
-%% @doc bbl public API
+%% @doc front public API
 %% @end
 %%%-------------------------------------------------------------------
 
--module(bbl_app).
+-module('front_app').
 
 -behaviour(application).
 
@@ -24,7 +24,7 @@ start(_StartType, _StartArgs) ->
         [{env, [{dispatch, Dispatch}]}]
     ),
 
-    bbl_sup:start_link().
+    front_sup:start_link().
 
 %%--------------------------------------------------------------------
 stop(_State) ->

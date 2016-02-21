@@ -1,0 +1,19 @@
+* BBL Erlang
+
+  Documents et code d'exemples pour animer un
+  [BBL](http://www.brownbaglunch.fr/) Erlang.
+
+** Build
+
+#+BEGIN_SRC sh
+$ ./rebar3 compile
+$ ./rebar3 release
+$ ./start.sh
+#+END_SRC
+
+  puis ouvrir la page http://localhost:8080
+
+* Backlog
+
+
+
