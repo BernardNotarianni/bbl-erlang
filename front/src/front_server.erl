@@ -48,10 +48,14 @@ init([]) ->
 handle_call(_Request, _From, State) ->
     {noreply, State}.
 
-handle_cast({connect, Pid}, State = #state{clients = Clients}) ->
-    {noreply, State#state{clients = [Pid|Clients]}};
+handle_cast({connect, Pid}, State) ->
+    #state{clients = Clients} = State,
+    NewState = State#state{clients = [Pid|Clients]},
+    {noreply, NewState};
+
 handle_cast({disconnect, Pid}, State = #state{clients = Clients}) ->
     {noreply, State#state{clients  = Clients -- [Pid]}};
+
 handle_cast({send_message, FromPid, Message}, State) ->
     do_send_message(FromPid, Message, State),
     {noreply, State}.

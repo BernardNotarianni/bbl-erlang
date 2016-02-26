@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+while true; do
+
+    make
+
+    echo ""
+
+    inotifywait -qr -e modify -e create -e move -e delete bbl.tex plant.uml --exclude "\.\#.*" --exclude "\.goutputstream\-.*"
+done

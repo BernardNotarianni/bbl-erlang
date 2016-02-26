@@ -1,0 +1,174 @@
+\ifdefined\isnotes
+  \documentclass[notes=only]{beamer}
+\else
+  \documentclass{beamer}
+\fi
+
+\usepackage[utf8]{inputenc}
+\usepackage{minted}
+\usepackage{epstopdf}
+\usepackage[french]{babel}
+%\usepackage[T1]{fontenc}
+\usetheme{Goettingen}
+
+\usemintedstyle{tango}
+
+\title{Erlang}
+\author{Brown Bag Lunch}\institute{Bernard Notarianni}
+
+\begin{document}
+
+\begin{frame}
+
+  \titlepage
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Agenda}
+  \tableofcontents
+\end{frame}
+
+\begin{frame}
+  \section[Rencontre]{Rencontrons Erlang}
+  \subsection[WTF]{WTF! Trop exotique pour moi!}
+
+
+  \frametitle{``WTF!! Encore un langage exotique!!''}
+  En fait, c'est beaucoup plus simple qu'il n'y parait...
+  \begin{itemize}
+  \item Pas de classes
+  \item Pas d'héritage
+  \item Pas de polymorphisme
+  \item Pas de types
+  \item Pas de stream
+  \item Pas de lazy-evaluation
+  \item Pas de variables (seulement des noms)
+  \end{itemize}
+  ...presque plus simple que Visual Basic!
+
+  \note{c'est tres interessant}
+\end{frame}
+
+
+\begin{frame}
+  \subsection[Histoire]{Histoire}
+  \frametitle{Histoire}
+
+  Concu chez Ericsson dans les années 80 avec l'intention de remplacer
+  C par un langage plus simple et plus efficace permettant la très haute
+  dispo.
+
+  \begin{itemize}
+  \item Il nous faut plusieurs serveurs
+  \item Donc, il faut pouvoir distribuer les traitements
+  \item Donc, les taitements doivent être parallèlisables
+  \item Donc, il nous faut du multi-processing
+  \item Donc, il nous faut l'immutabilité
+  \item Donc, il nous faut la programmation fonctionnelle
+  \end{itemize}
+
+  Open Source depuis la fin des années 90.\\
+  Elixir le rend populaire début 2010.\\
+  Le ``Rails 5.0'' est plebiscité par la communauté
+  Ruby.
+
+  \note{C'est super cool comme langage}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Pour quel type d'applications?}
+  Erlang est très adapté pour
+  \begin{itemize}
+  \item les appli web de toute sorte
+  \item les traitements temps réel
+  \item scaler de 1 à 100 millions d'utilisateurs
+  \item faire des choses compliquées de manière simple
+  \end{itemize}
+  mais ne saura pas faire
+  \begin{itemize}
+  \item des IHM natives (dont le mobile)
+  \item des moteurs 3D pour des jeux
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Principales références}
+  \subsection[Références]{Principales références}
+
+  \begin{itemize}
+  \item Whatsapp
+  \item Call Of Duty
+  \item Orange
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  Manipulation de listes
+  \begin{minted}{erlang}
+    L = [1,2,3,4],
+    D = [ X*2 || X <- L ].
+  \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+  Définition de fonctions
+  \begin{minted}{erlang}
+    double(L) ->
+        [ X*2 || X <- L ].
+  \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Pattern maching}
+  Définition de fonction:
+  \begin{minted}{erlang}
+    fib(0) -> 0;
+    fib(1) -> 1;
+    fib(N) -> fib(N-1) + fib(N-2).
+  \end{minted}
+
+  Décodage d'une liste:
+  \begin{minted}{erlang}
+    A = [1,2,3,4],
+    [First, Second | _ ]  = A
+  \end{minted}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  Conditions
+  \begin{minted}{erlang}
+    fib(0) -> 0;
+    fib(1) -> 1;
+    fib(N) -> fib(N-1) + fib(N-2).
+  \end{minted}
+\end{frame}
+
+\begin{frame}
+  \textsc{Beamer}, c'est vachement tout beau!
+  \begin{figure}
+    \includegraphics{plant.eps}
+  \end{figure}
+\end{frame}
+
+\begin{frame}[fragile]
+  List comprehension
+
+  \begin{minted}{erlang}
+    L = [1,2,3,4],
+    D = [ X*2 || X <- L ].
+  \end{minted}
+
+  D est la liste des X*2 tel que X appartient à L.
+\end{frame}
+
+
+\begin{frame}
+  Prendre des exemple de How to Design Programs
+\end{frame}
+
+
+\end{document}
