@@ -1,0 +1,21 @@
+* Kata Erlang pour débuter
+
+Ce repository contient des exemples de code et des katas pour découvrir et apprendre Erlang.
+
+Pour démarrer la boucle tdd (utilise rebar):
+
+    $ ./tdd.sh
+
+** Plan de progression
+
+*** Une fonction simple, en local
+
+- Décrouvrir la syntaxe
+- Structure de données
+  - Listes
+  - Struct
+- Pattern-matching
+
+  
+*** Traitement parallèle
+
