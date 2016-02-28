@@ -25,13 +25,20 @@
 \end{frame}
 
 \begin{frame}
+  \section[Rencontre]{Rencontrons Erlang}
+
   \frametitle{Agenda}
   \tableofcontents
 \end{frame}
 
-\begin{frame}
-  \section[Rencontre]{Rencontrons Erlang}
+\begin{frame}[fragile]
+  Erlang peut paraitre exotique:
   \subsection[WTF]{WTF! Trop exotique pour moi!}
+
+  \begin{minted}{erlang}
+    L = [1,2,3,4],
+    D = [ X*2 || X <- L ].
+  \end{minted}
 
 
   \frametitle{``WTF!! Encore un langage exotique!!''}
@@ -105,8 +112,16 @@
 
 \end{frame}
 
+\begin{frame}
+  \frametitle{Manipulation de listes}
+  \section[Syntaxe]{Syntaxe}
+  \subsection[Listes]{Manipulation de listes}
+
+\end{frame}
+
 \begin{frame}[fragile]
-  Manipulation de listes
+  \frametitle{Manipulation de listes}
+  \subsection[Listes]{Manipulation de listes}
   \begin{minted}{erlang}
     L = [1,2,3,4],
     D = [ X*2 || X <- L ].
@@ -123,6 +138,7 @@
 
 \begin{frame}[fragile]
   \frametitle{Pattern maching}
+  \subsection[Pattern Matching]{Pattern Matching}
   Définition de fonction:
   \begin{minted}{erlang}
     fib(0) -> 0;
@@ -165,10 +181,28 @@
   D est la liste des X*2 tel que X appartient à L.
 \end{frame}
 
+\begin{frame}
+  \frametitle{Architecture}
+  \section[Architecture]{Architecture}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Calcul distribué}
+  \subsection[Calcul distribué]{Calcul distribué}
+
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Application web}
+  \subsection[Application web]{Application web}
+
+
+\end{frame}
+
 
 \begin{frame}
   Prendre des exemple de How to Design Programs
 \end{frame}
-
 
 \end{document}
