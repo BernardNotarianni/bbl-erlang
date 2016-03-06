@@ -19,7 +19,7 @@ list (L) ->
     dict: to_list (D3).
 ```
 
-# Itération recursive sur la liste
+## Itération recursive sur la liste
 
 - un accumulateur en 2eme parametre
 - un pattern matching pour terminer la recursion
@@ -36,7 +36,7 @@ list (L, D)->
     list (tl(L), D2).
 ```
 
-# Pattern matching dans les parametres
+## Pattern matching dans les parametres
 
 ```erlang
 list ([], D)->
@@ -48,7 +48,8 @@ list ([Word|Others], D)->
          end,
     list (Others, D2).
 ```
-# Transformation en foldl
+
+## Transformation en foldl
 
 
 ```erlang
