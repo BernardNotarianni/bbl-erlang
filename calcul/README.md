@@ -36,7 +36,7 @@ Dans une d'autre(s) fenetre(s) shell
 cd slave
 erl -make
 ./start.sh slave1@localhost
-(slave1@localhost)1> net_kernel:connect_node('master@localhost').
+(slave1@localhost)1> net_kernel:connect_node('master@127.0.0.1').
 ```
 
 Depuis le shell du master

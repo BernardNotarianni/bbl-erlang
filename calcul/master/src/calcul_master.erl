@@ -10,8 +10,9 @@ stop(_State) ->
     ok.
 
 calculate(N, M) ->
-  Ranges = calcul_master_range:split(N, M, length(nodes())),
-  Params = lists:zip(Ranges, nodes()),
+  SlaveNodes = slave_nodes(),
+  Ranges = calcul_master_range:split(N, M, length(SlaveNodes)),
+  Params = lists:zip(Ranges, SlaveNodes),
 
   % Map
   WorkerPids = [ spawn_jobs(Param) || Param <- Params ],
@@ -49,3 +50,10 @@ wait_responses(Pid) ->
     {Pid, Node, Time, Result} ->
       {Node, Time, Result}
   end.
+
+slave_nodes () ->
+    [ Node || Node <- nodes(), not is_front_node (Node)].
+
+is_front_node (NodeName) ->
+    NameAsString = atom_to_list (NodeName),
+    "front" == hd (string: tokens (NameAsString, "@")).
