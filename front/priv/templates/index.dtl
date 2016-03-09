@@ -8,10 +8,28 @@
   </head>
   <body>
     <h1>Erlang Brown Bag Lunch</h1>
-    <p>Hello world!</p>
-    <button>Create</button>
+    <p>Please enter two number here:</p>
+    <form id="calculateForm" action="/" method="post">
+      <input type="text" name="number1"/><br/>
+      <input type="text" name="number2"/><br/>
+      <input type="submit" value="Calculate"/>
+    </form>
     <hr/>
     <h3>Those messages are coming from server by web-socket</h3>
     <div id="messages"></div>
+
+    <script>
+      $( "#calculateForm" ).submit(function( event ) {
+ 
+      event.preventDefault();
+ 
+      var $form = $( this ),
+        number1 = $form.find( "input[name='number1']" ).val(),
+        number2 = $form.find( "input[name='number2']" ).val();
+ 
+      $.post( "/", { n: number1, m: number2 } );
+     })
+    </script>
+ 
   </body>
 </html>
